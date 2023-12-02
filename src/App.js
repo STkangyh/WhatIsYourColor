@@ -1,24 +1,23 @@
-import logo from './logo.svg';
-import './App.css';
+import { BrowserRouter as Router, Routes, Route, Link } from "react-router-dom";
+import Home from "./routes/Home";
 
 function App() {
   return (
-    <div className="App">
-      <header className="App-header">
-        <img src={logo} className="App-logo" alt="logo" />
-        <p>
-          Edit <code>src/App.js</code> and save to reload.
-        </p>
-        <a
-          className="App-link"
-          href="https://reactjs.org"
-          target="_blank"
-          rel="noopener noreferrer"
-        >
-          Learn React
-        </a>
-      </header>
-    </div>
+    <Router>
+      {/* Link를 화면에 표시 */}
+      <nav>
+        <ul>
+          <li>
+            <Link to="/home">처음으로</Link>
+          </li> 
+          {/* 다른 링크들을 추가할 수 있음 */}
+        </ul>
+      </nav>
+      <Routes>
+        <Route path="/" element={<Home />} />
+        {/* 다른 라우트들을 추가할 수 있음 */}
+      </Routes>
+    </Router>
   );
 }
 
