@@ -1,0 +1,30 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+    <link rel="stylesheet" href="style.css">
+</head>
+<body>
+    <div id="background" class="spring">
+        <div id="Title">
+            What is your color?
+        </div>
+        <input type="checkbox" id="stopCheckbox" onclick="toggleColorChange()">
+        <label for="stopCheckbox">Stop Color Change</label>
+        <div id="buttons">
+            <button type="button" onclick="startPredict()">WebCam Start</button>
+            <button type="button" onclick="stopPredict()">Take a shot</button>
+            <button type="button" onclick="additional()">Figure out your color</button>
+        </div>
+        <div id="webcam-container"></div>
+        <div id="label-container"></div>
+        <div id="colorInfo"></div>
+    </div>
+    <script src="https://cdn.jsdelivr.net/npm/@tensorflow/tfjs@latest/dist/tf.min.js"></script>
+    <script src="https://cdn.jsdelivr.net/npm/@teachablemachine/image@latest/dist/teachablemachine-image.min.js"></script>
+    <script src="script.js"></script>
+    <script src="model.js"></script>
+</body>
+</html>
