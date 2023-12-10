@@ -46,3 +46,53 @@ WebCam Start 버튼을 누르면 페이지 상단에 카메라 접근 권한을 
 직접 CNN을 구현하여 더 복잡하고 성능이 좋은 모델을 만들고, 더 다양한 기능을 가진 페이지로 업데이트 할 예정입니다.
 오픈 소스 소프트웨어 수업은 끝났지만, 해당 페이지는 좀 더 발전할 수 있도록 계속 수정하도록 하겠습니다.
 언젠가 이 페이지를 서버에 올려서, 광고 배너를 달 때까지 노력해보겠습니다.
+
+# WhatIsYourColor
+
+Let's find your Personal Color! Take a photo on the web page and discover your personal color!
+
+## What is Personal Color?
+
+Personal Color refers to colors that suit individuals based on their skin tone, eye color, hair color, and other factors. It helps in selecting colors for clothing, makeup, hair dye, accessories, etc., that complement personal characteristics. It's important to note that personal color analysis lacks clear scientific evidence for distinct criteria; therefore, results may vary individually, and it's best to find natural-looking colors without biases.
+
+## Preparation for Utilizing the Web Page
+
+- Click 'code' on the GitHub page and copy the URL in the HTTPS environment.
+- Create a new local folder for execution, open it in the terminal, clone it, and enter the copied URL.
+- Run the index.html file in the WhatIsYourColor folder to open the web page.
+- Camera access permission is required for personal color identification.
+- When you click the 'WebCam Start' button, a popup will request camera access at the top of the page. Please grant permission.
+- Your camera view will appear in the center of the screen. When you press the 'Take a shot' button, your personal color will be displayed at the bottom of the page based on the captured camera view.
+- If further explanations are needed, click the 'Figure out your color' button to check additional information about your personal color.
+
+## Reason for Choosing This Topic
+
+As explained about personal color, I found that people who provide such tests often charge varying amounts, from a few thousand to even hundreds of thousands of won. I thought it might be a good idea to create a testing tool myself instead of spending such amounts.
+
+### Reason for Choosing Teachable Machine
+
+I considered implementing machine learning myself, but I found it challenging to understand the process of classifying classes even after reviewing course materials and external sources. Since this course is open-source software, I wanted to utilize an open-source tool. There were several options, but I chose Teachable Machine because it seemed the easiest to handle.
+
+## Production Process
+
+1. **Collecting Appropriate Picture Data:**
+   - The personal color identification device I created divided into four classes: Spring Warm, Fall Warm, Summer Cool, and Winter Cool.
+   - Data consists of pictures of celebrities recognized by many people for their personal color.
+   - Data Processing Steps:
+     - The scraping.py program crawls Google to gather 200-250 pictures per person.
+     - The FaceDetect.py program edits the pictures by framing the faces and saves them.
+     - The NotFaceDelete.py program keeps the pictures with recognizable faces and deletes the rest.
+
+2. **Upload Processed Data to Teachable Machine:**
+   - In Teachable Machine, I divided the classes and set the training epochs, batch size, and learning rate.
+   - The target metrics were accuracy above 0.5 and loss per epoch below 2.
+   - I downloaded the model using the best settings.
+
+3. **Processing Model and Information into the Web Page:**
+   - Created JSON and JavaScript files to complete the web page.
+
+## Evaluation
+
+It's regrettable that I couldn't implement all the desired functions by December 10th and that the model's accuracy is low. However, as much as there are shortcomings, there are more areas for improvement. I plan to create a more complex and higher-performing model by implementing CNN and update the page with more diverse features. Even though the open-source software course is over, I'll continue to edit this page to enhance it further.
+
+I aim to upload this page to a server and even place advertisements on it someday.
